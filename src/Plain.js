@@ -56,6 +56,7 @@ const styles = StyleSheet.create({
   },
   root: {
     backgroundColor: '#16a085',
+    // backgroundColor: '#fff',
     flex: 1,
     width: '100%',
   },
@@ -66,7 +67,8 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   text: {
-    color: 'white',
+    color: '#fff',
+    // color: '#16a085',
     fontSize: 28,
     fontWeight: 'bold',
   },
@@ -81,6 +83,7 @@ const styles = StyleSheet.create({
     width: 150,
   },
   touchText: {
-    color: 'white',
+    color: '#fff',
+    // color: '#16a085',
   },
 });

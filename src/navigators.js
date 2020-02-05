@@ -55,11 +55,12 @@ export const PlainStack = createStackNavigator(
     mode: 'modal',
     // headerMode: 'none',
     defaultNavigationOptions: {
-      ...TransitionPresets.ModalPresentationIOS,
-      // ...TransitionPresets.ModalSlideFromBottomIOS,
+      // ...TransitionPresets.ModalPresentationIOS,
+      ...TransitionPresets.ModalSlideFromBottomIOS,
       // cardOverlayEnabled: true,
       // cardShadowEnabled: true,
-      cardStyle: { backgroundColor: 'transparent' },
+      // cardStyle: { backgroundColor: 'transparent' },
+      cardStyle: { backgroundColor: '#0000009a' },
       gestureEnabled: true,
     },
   }
