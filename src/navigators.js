@@ -1,7 +1,10 @@
 import { createAppContainer } from 'react-navigation';
 import { createDrawerNavigator } from 'react-navigation-drawer';
 import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
-import { createStackNavigator } from 'react-navigation-stack';
+import {
+  createStackNavigator,
+  TransitionPresets,
+} from 'react-navigation-stack';
 
 // Stack Navigator screens
 import ItemList from './ItemList';
@@ -14,6 +17,7 @@ import TabC from './TabC';
 
 // Plain old component
 import Plain from './Plain';
+import Modal from './Modal';
 
 // Stack Navigator
 export const Stack = createStackNavigator(
@@ -31,6 +35,33 @@ export const Stack = createStackNavigator(
   },
   {
     initialRouteName: 'ItemList',
+  }
+);
+
+export const PlainStack = createStackNavigator(
+  {
+    Plain: { screen: Plain },
+    Modal: {
+      screen: Modal,
+      navigationOptions: {
+        cardOverlayEnabled: true,
+        cardShadowEnabled: true,
+        headerShown: false,
+      },
+    },
+  },
+  {
+    initialRouteName: 'Plain',
+    mode: 'modal',
+    // headerMode: 'none',
+    defaultNavigationOptions: {
+      ...TransitionPresets.ModalPresentationIOS,
+      // ...TransitionPresets.ModalSlideFromBottomIOS,
+      // cardOverlayEnabled: true,
+      // cardShadowEnabled: true,
+      cardStyle: { backgroundColor: 'transparent' },
+      gestureEnabled: true,
+    },
   }
 );
 
@@ -70,7 +101,7 @@ export const Tabs = createMaterialTopTabNavigator(
 export const Drawer = createDrawerNavigator({
   Stack: { screen: Stack },
   Tabs: { screen: Tabs },
-  Plain: { screen: Plain },
+  Plain: { screen: PlainStack },
 });
 
 const Root = createAppContainer(Drawer);
